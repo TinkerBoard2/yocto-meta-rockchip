@@ -1,0 +1,26 @@
+From b9dd5275612289105e52143b8ed5794e31a74a48 Mon Sep 17 00:00:00 2001
+From: Rock Shen <rock_shen@asus.com>
+Date: Tue, 27 Sep 2022 17:45:14 +0800
+Subject: [PATCH] net: wifi: fix rtl8852be build failed on yocto environment
+
+Change-Id: Ifd9c75a73b8ac7534a093c1bab916c6743591319
+---
+ drivers/net/wireless/rockchip_wlan/rtl8852be/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/net/wireless/rockchip_wlan/rtl8852be/Makefile b/drivers/net/wireless/rockchip_wlan/rtl8852be/Makefile
+index 79a92486b39e..7c908f7dff17 100644
+--- a/drivers/net/wireless/rockchip_wlan/rtl8852be/Makefile
++++ b/drivers/net/wireless/rockchip_wlan/rtl8852be/Makefile
+@@ -585,6 +585,8 @@ endif
+ # Import platform assigned KSRC and CROSS_COMPILE
+ include $(wildcard $(DRV_PATH)/platform/*.mk)
+ 
++include $(src)/platform/rk_rk3399.mk
++
+ # Import platform specific compile options
+ EXTRA_CFLAGS += -I$(src)/platform
+ #_PLATFORM_FILES := platform/platform_ops.o
+-- 
+2.17.1
+
